@@ -1,361 +1,278 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Online School</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <title>MOS SOFT</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7f7f7;
             margin: 0;
             padding: 0;
-            background-color: #202020;
+            color: #333;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #2667ff;
+            padding: 0px;
+            text-align: right;
+        }
+        .navbar a {
             color: #fff;
-            transition: background-color 0.3s, color 0.3s;
+            margin: 0 1px;
+            text-decoration: none;
+            font-weight: bold;
         }
-        h1 {
-            color: #000;
+        .header {
+            padding: 50px;
+            text-align: center;
+            color: #fff;
         }
-        header {
+        .header img {
+            display: block;
+            width: 100vw;
+            max-height: 280px;
+        }
+        .cta {
+            padding: 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 50px;
-            background-color: #ffffff;
-            color: #000;
         }
-        header nav a {
-            color: #000000;
-            margin: 0 20px;
-            text-decoration: none;
-            font-size: 16px;
+        .cta .text {
+            max-width: 50%;
         }
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 50px;
-            background-color: #ffffff;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-content {
-            text-align: center;
-            max-width: 500px;
-        }
-        .hero-content h1 {
+        .cta h2 {
             font-size: 36px;
             margin-bottom: 20px;
-            color: #000;
         }
-        .hero-content p {
+        .cta p {
             font-size: 18px;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
-        .hero-buttons a {
-            padding: 15px 30px;
-            margin-right: 20px;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-            color: white;
-            transition: background-color 0.3s;
+        .cta img {
+            max-width: 40%;
+            height: auto;
         }
-        .hero-buttons a:first-child {
-            background-color: #007BFF;
-        }
-        .hero-buttons a:last-child {
-            background-color: #2667ff;
-        }
-        .hero-images {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-        }
-        .hero-images img {
-            border-radius: 50px;
-            border: 5px solid #2667ff;
-            width: 120px;
-            height: 250px;
-            object-fit: cover;
-            background-color: #007BFF;
-            transition: transform 0.5s;
-        }
-        .hero-images img:hover {
-            transform: scale(1.05);
-        }
-        .cards-section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 50px;
-            background-color: #f4f4f4;
-            animation: fadeIn 2s ease-out;
-            justify-content: center;
-        }
-        .card {
-            background-color: #fff;
+        .form-container {
+            background: #add7f6;
+            padding: 30px;
             border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 250px;
+            max-width: 400px;
+            margin: 20px 0;
             text-align: center;
-            color: #000;
-            transition: transform 0.3s;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
         }
-        .card img {
+        .form-container h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #3f8efc;
+        }
+        .form-container input[type="text"] {
+            padding: 15px;
+            font-size: 18px;
+            margin-bottom: 10px;
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-bottom: 2px solid #007BFF;
-        }
-        .card h3 {
-            margin: 15px 0;
-            font-size: 20px;
-        }
-        .card p {
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
-        .card a {
-            display: inline-block;
-            margin-bottom: 20px;
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-            text-decoration: none;
             border-radius: 5px;
-            transition: background-color 0.3s;
+            border: 1px solid #ccc;
         }
-        .card a:hover {
-            background-color: #0056b3;
-        }
-        .dark-mode-toggle {
-            background-color: #007BFF;
-            color: white;
+        .form-container input[type="submit"] {
+            padding: 15px;
+            font-size: 18px;
+            background-color: #2667ff;
+            color: #fff;
             border: none;
-            padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s ease;
+            width: 100%;
         }
-        .dark-mode-toggle:hover {
-            background-color: #0056b3;
+        .form-container input[type="submit"]:hover {
+            background-color: #87bfff;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f0f8ff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: right;
+            color: #000;
         }
-        footer {
+        .footer {
             background-color: #333;
             color: #fff;
-            padding: 40px 20px;
             text-align: center;
+            padding: 20px;
+            margin-top: 50px;
         }
-        footer .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 4px solid #2667ff;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+            display: none;
         }
-        footer .footer-content h3 {
-            margin-bottom: 10px;
-            font-size: 24px;
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
-        footer .footer-content p {
-            font-size: 16px;
-            margin: 0;
-        }
-        footer .social-icons {
-            margin-top: 20px;
-        }
-        footer .social-icons a {
+        body.dark-mode {
+            background-color: #333;
             color: #fff;
-            margin: 0 10px;
-            text-decoration: none;
-            font-size: 24px;
-            transition: color 0.3s;
         }
-        footer .social-icons a:hover {
-            color: #007BFF;
+        .form-container.dark-mode {
+            background-color: #444;
+            color: #fff;
         }
-        footer .footer-bottom {
-            margin-top: 20px;
-            font-size: 14px;
+        .navbar.dark-mode {
+            background-color: #222;
         }
-        
-        /* Media Queries for Mobile Devices */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 20px;
-            }
-            header nav {
-                margin-top: 10px;
-            }
-            header nav a {
-                margin: 0 10px;
-                font-size: 14px;
-            }
-            .hero-content h1 {
-                font-size: 28px;
-            }
-            .hero-buttons a {
-                padding: 10px 20px;
-                font-size: 14px;
-            }
-            .hero-images img {
-                width: 80px;
-                height: 160px;
-            }
-            .cards-section {
-                padding: 20px;
-            }
-            .card {
-                width: 100%;
-                max-width: 300px;
-            }
-            footer {
-                padding: 20px 10px;
-            }
+        .footer.dark-mode {
+            background-color: #222;
+        }
+        .table {
+            text-align: right;
+            width: 100%;
+        }
+        .table th, .table td {
+            padding: 8px;
+            border: 1px solid #ddd;
         }
 
-        @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 24px;
+        /* Media query for mobile view */
+        @media (max-width: 768px) {
+            .cta {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
             }
-            .hero-buttons a {
-                padding: 8px 15px;
-                font-size: 12px;
+            .cta img {
+                max-width: 80%;
+                margin-bottom: 20px;
             }
-            .hero-images img {
-                width: 60px;
-                height: 120px;
-            }
-            .card {
-                width: 100%;
-                max-width: 280px;
-            }
-            footer .footer-content h3 {
-                font-size: 20px;
-            }
-            footer .footer-content p {
-                font-size: 14px;
-            }
-            footer .social-icons a {
-                font-size: 20px;
+            .cta .text {
+                max-width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <h1>MOS SOFT</h1>
-        </div>
-        <nav>
-            <a href="#"><i class="fas fa-home"></i> Home</a>
-            <a href="#"><i class="fas fa-info-circle"></i> About</a>
-            <a href="#"><i class="fas fa-chalkboard-teacher"></i> Academy</a>
-            <a href="#"><i class="fas fa-cogs"></i> Features</a>
-        </nav>
-        <button class="dark-mode-toggle" onclick="toggleDarkMode()">النمط الفاتح</button>
-    </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Select Your Teacher to View Your Result</h1>
-            <br>
-
-            <div class="hero-buttons">
-                <a href="#">Start</a>
-            </div>
-
-        </div>
-        <br>
-        <br>
-        <br>
-
-        <div class="hero-images">
-            <img src="st1.jpg" alt="Student 1">
-            <img src="st2.jpg" alt="Student 2">
-            <img src="st3.jpg" alt="Student 3">
-            <img src="st7.jpg" alt="Student 4">
-            <img src="st5.jpg" alt="Student 5">
-            <img src="st6.jpg" alt="Student 6">
-        </div>
-    </section>
-
-    <!-- Cards Section -->
-    <div class="cards-section">
-        <div class="card animate__animated animate__zoomIn">
-            <img src="ab.jpg" alt="Teacher 1">
-            <h3>AHMED AL-BADRI</h3>
-            <p>ARABIC</p>
-            <a href="index.html" target="_blank"><i class="fas fa-file-alt"></i> Result</a>
-        </div>
-
-        <div class="card animate__animated animate__zoomIn animate__delay-1s">
-            <img src="fisal.jpg" alt="Teacher 2">
-            <h3>MOHAMMAD FAISAL</h3>
-            <p>GEOGRAPHY</p>
-            <a href="index.html"><i class="fas fa-file-alt"></i> Result</a>
-        </div>
-
-        <div class="card animate__animated animate__zoomIn animate__delay-2s">
-            <img src="mostafa arafa.jpg" alt="Teacher 3">
-            <h3>MOSTAFA ARAFA</h3>
-            <p>HISTORY</p>
-            <a href="#"><i class="fas fa-file-alt"></i> Result</a>
-        </div>
-
-        <div class="card animate__animated animate__zoomIn animate__delay-2s">
-            <img src="ESLAM.jpg" alt="Teacher 3">
-            <h3>ISLAM EID</h3>
-            <p>PHILOSOPHY & PSVCHOLOGY</p>
-            <a href="#"><i class="fas fa-file-alt"></i> Result</a>
-        </div>
-
-
-        <div class="card animate__animated animate__zoomIn animate__delay-2s">
-            <img src="os.jpg" alt="Teacher 3">
-            <h3>OSAMA SAADALLAH</h3>
-            <p>MATH</p>
-            <a href="#"><i class="fas fa-file-alt"></i> Result</a>
-        </div>
-
-        <!-- Removed duplicate cards for cleaner layout -->
+    <div class="header">
+        <!-- <img src="abb.jpg" alt="أ/أحمد البدري"> -->
     </div>
 
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 MOS SOFT. All Rights Reserved.</p>
-            <div class="social-icons">
-                <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <div class="cta">
+        <img src="fisal.jpg" alt="أ/أحمد البدري">
+        <div class="text">
+            <h2>ابدأ في استعلام نتيجة الطلاب الآن</h2>
+            <p>أدخل رقم الجلوس الخاص بك في الحقل أدناه للحصول على نتيجتك.</p>
+            
+            <div class="form-container">
+                <h3>أدخل رقم الجلوس</h3>
+                <form id="studentForm">
+                    <input type="text" id="seatNumber" name="seatNumber" placeholder="رقم الجلوس" required>
+                    <input type="submit" value="عرض النتيجة">
+                </form>
+                <div id="loader" class="loader"></div>
+                <div id="result" class="result"></div>
             </div>
         </div>
-    </footer>
+    </div>
 
+    <div class="footer">
+        <button id="darkModeToggle">Toggle Dark Mode</button>
+        <p>© 2024 MOS SOFT. All rights reserved.</p>
+        <a href="#">Facebook</a>
+        <a href="#">Telegram</a>
+        <a href="#">WhatsApp</a>
+        <a href="#">YouTube</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <script>
-        function toggleDarkMode() {
-            const body = document.body;
-            const button = document.querySelector('.dark-mode-toggle');
-            if (body.style.backgroundColor === 'rgb(32, 32, 32)') {
-                body.style.backgroundColor = '#ffffff';
-                body.style.color = '#000000';
-                button.textContent = 'النمط الداكن';
-            } else {
-                body.style.backgroundColor = '#202020';
-                body.style.color = '#ffffff';
-                button.textContent = 'النمط الفاتح';
+        // تحميل بيانات الطلاب من ملف CSV
+        Papa.parse('data.csv', {
+            download: true,
+            header: true,
+            complete: function(results) {
+                console.log(results.data); // عرض البيانات المحملة في الكونسول للتحقق
+                window.studentData = results.data.reduce((acc, row) => {
+                    if (row['رقم الجلوس'] && row['اسم الطالب']) {
+                        acc[row['رقم الجلوس']] = {
+                            ...row,
+                            'اسم الطالب': sanitizeString(row['اسم الطالب']),
+                            'اسم السنتر': sanitizeString(row['اسم السنتر']),
+                            'اسم المجموعة': sanitizeString(row['اسم المجموعة']),
+                            'الكود': sanitizeString(row['الكود']),
+                            'الدرجة': sanitizeString(row['الدرجة'])
+                        };
+                    }
+                    return acc;
+                }, {});
+            },
+            error: function(err) {
+                document.getElementById('result').innerHTML = `<p>حدث خطأ في تحميل البيانات. يرجى المحاولة لاحقًا.</p>`;
             }
+        });
+
+        document.getElementById('studentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const seatNumber = document.getElementById('seatNumber').value.trim();
+            const resultDiv = document.getElementById('result');
+            const loader = document.getElementById('loader');
+
+            // Validate seat number input
+            if (!/^\d+$/.test(seatNumber)) {
+                resultDiv.innerHTML = `<p>الرجاء إدخال رقم جلوس صالح.</p>`;
+                return;
+            }
+
+            resultDiv.innerHTML = '';
+            loader.style.display = 'block';
+
+            setTimeout(() => {
+                const studentInfo = window.studentData[seatNumber];
+                loader.style.display = 'none';
+                if (studentInfo) {
+                    resultDiv.innerHTML = `
+                        <table class="table">
+                            <tr><th>اسم الطالب</th><td>${studentInfo['اسم الطالب']}</td></tr>
+                            <tr><th>اسم السنتر</th><td>${studentInfo['اسم السنتر']}</td></tr>
+                            <tr><th>اسم المجموعة</th><td>${studentInfo['اسم المجموعة']}</td></tr>
+                            <tr><th>الكود</th><td>${studentInfo['الكود']}</td></tr>
+                            <tr><th>الدرجة</th><td>${studentInfo['الدرجة']}</td></tr>
+                        </table>`;
+                } else {
+                    resultDiv.innerHTML = `<p>رقم الجلوس غير موجود. الرجاء التحقق من الرقم والمحاولة مرة أخرى.</p>`;
+                }
+            }, 1000);
+        });
+
+        function sanitizeString(str) {
+            return str ? str.replace(/[<>]/g, '') : '';
         }
+
+        document.getElementById('darkModeToggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            document.querySelector('.form-container').classList.toggle('dark-mode');
+            document.querySelector('.navbar').classList.toggle('dark-mode');
+            document.querySelector('.footer').classList.toggle('dark-mode');
+        });
     </script>
 </body>
 </html>
