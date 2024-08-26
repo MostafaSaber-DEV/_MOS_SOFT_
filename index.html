@@ -341,21 +341,72 @@
             </div>
         </div>
     </footer>
-
     <script>
         function toggleDarkMode() {
             const body = document.body;
-            const button = document.querySelector('.dark-mode-toggle');
-            if (body.style.backgroundColor === 'rgb(32, 32, 32)') {
-                body.style.backgroundColor = '#ffffff';
-                body.style.color = '#000000';
-                button.textContent = 'النمط الداكن';
-            } else {
+            const darkModeToggle = document.querySelector('.dark-mode-toggle');
+            if (body.classList.toggle('dark-mode')) {
+                darkModeToggle.innerHTML = '<i class="fas fa-sun dark-mode-icon"></i> Dark Mode';
                 body.style.backgroundColor = '#202020';
                 body.style.color = '#ffffff';
-                button.textContent = 'النمط الفاتح';
+                document.querySelector('header').style.backgroundColor = '#333';
+                document.querySelector('header').style.color = '#fff';
+                document.querySelectorAll('.card').forEach(card => card.style.backgroundColor = '#333');
+                document.querySelectorAll('.card h3').forEach(h3 => h3.style.color = '#fff');
+                document.querySelectorAll('.card p').forEach(p => p.style.color = '#ccc');
+            } else {
+                darkModeToggle.innerHTML = '<i class="fas fa-moon dark-mode-icon"></i> Light Mode';
+                body.style.backgroundColor = '#ffffff';
+                body.style.color = '#000000';
+                document.querySelector('header').style.backgroundColor = '#ffffff';
+                document.querySelector('header').style.color = '#000';
+                document.querySelectorAll('.card').forEach(card => card.style.backgroundColor = '#fff');
+                document.querySelectorAll('.card h3').forEach(h3 => h3.style.color = '#000');
+                document.querySelectorAll('.card p').forEach(p => p.style.color = '#000');
             }
         }
+    
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+    
+        document.addEventListener('keydown', function(e) {
+            // Disable F12
+            if (e.key === 'F12') {
+                e.preventDefault();
+            }
+            // Disable Ctrl+U (View Source)
+            if (e.ctrlKey && e.key === 'u') {
+                e.preventDefault();
+            }
+            // Disable Ctrl+I (Inspect Element)
+            if (e.ctrlKey && e.key === 'i') {
+                e.preventDefault();
+            }
+            if (e.ctrlKey && e.key === 'u') {
+                e.preventDefault();
+            }
+            // Disable Ctrl+J (Console)
+            if (e.ctrlKey && e.key === 'j') {
+                e.preventDefault();
+            }
+            // Disable Ctrl+Shift+I (Inspect Element)
+            if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+                e.preventDefault();
+            }
+            // Disable Ctrl+Shift+J (Console)
+            if (e.ctrlKey && e.shiftKey && e.key === 'J') {
+                e.preventDefault();
+            }
+        });
+    
+        document.querySelector('.hero-buttons a').addEventListener('click', function() {
+            window.location.href = 'teachers.html';
+        });
+    </script>
+    
+</body>
+</html>
     </script>
 </body>
 </html>
